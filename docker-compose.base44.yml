@@ -1,0 +1,80 @@
+name: car-website
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: on-failure
+    environment:
+      POSTGRES_USER: carwebsite
+      POSTGRES_PASSWORD: carwebsite_dev
+      POSTGRES_DB: carwebsite
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U carwebsite -d carwebsite"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  api:
+    image: node:22-alpine
+    restart: on-failure
+    working_dir: /app/server
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      NODE_ENV: development
+      PORT: "8000"
+      DATABASE_URL: postgres://carwebsite:carwebsite_dev@db:5432/carwebsite
+      BASE44_PREVIEW_MODE:
+    volumes:
+      - ./:/app
+      - api_node_modules:/app/server/node_modules
+    command: ["sh", "-ec", "npm install --no-audit --no-fund && exec npm run dev"]
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:8000/api/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 8
+      start_period: 30s
+    labels:
+      base44.project: "Luxury Car Rental API"
+      base44.kind: api
+
+  web:
+    image: node:22-alpine
+    restart: on-failure
+    working_dir: /app/client
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    environment:
+      BASE44_PREVIEW_MODE:
+      # Vite >= 6.1 appends this to server.allowedHosts (preview proxy host).
+      __VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS:
+    volumes:
+      - ./:/app
+      - web_node_modules:/app/client/node_modules
+    command: ["sh", "-ec", "npm install --no-audit --no-fund && exec npm run dev"]
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "wget -q -O /dev/null http://127.0.0.1:3000/ || { echo 'web: vite dev server not responding on :3000'; exit 1; }",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 8
+      start_period: 45s
+    labels:
+      base44.project: "Luxury Car Rental"
+      base44.kind: web
+      base44.port: "3000"
+
+volumes:
+  db_data:
+  api_node_modules:
+  web_node_modules:

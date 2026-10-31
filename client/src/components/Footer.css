@@ -1,0 +1,131 @@
+.site-footer {
+  padding-top: clamp(56px, 7vw, 88px);
+  background: #000;
+  border-top: 1px solid var(--line);
+}
+
+.site-footer__top {
+  display: grid;
+  grid-template-columns: 1.6fr 0.8fr 1fr auto;
+  gap: clamp(28px, 4vw, 64px);
+  padding-bottom: clamp(40px, 5vw, 64px);
+}
+
+.site-footer__brand p {
+  max-width: 34ch;
+  margin-top: 20px;
+  color: var(--text-2);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.site-footer__socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.site-footer__socials a {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  color: var(--text-2);
+  transition:
+    color 0.35s var(--ease),
+    border-color 0.35s var(--ease);
+}
+
+.site-footer__socials a:hover {
+  color: var(--gold);
+  border-color: var(--gold-dim);
+}
+
+.site-footer__col {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.site-footer__col .micro {
+  margin-bottom: 6px;
+}
+
+.site-footer__col a,
+.site-footer__col span {
+  color: var(--text-2);
+  font-size: 0.875rem;
+  transition: color 0.3s var(--ease);
+}
+
+.site-footer__col a:hover {
+  color: var(--gold);
+}
+
+.site-footer__cta {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  justify-items: start;
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 0 28px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+}
+
+.site-footer__legal {
+  display: flex;
+  gap: 26px;
+}
+
+.site-footer__legal a {
+  transition: color 0.3s var(--ease);
+}
+
+.site-footer__legal a:hover {
+  color: var(--gold);
+}
+
+.site-footer__top-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.3s var(--ease);
+}
+
+.site-footer__top-link:hover {
+  color: var(--gold);
+}
+
+@media (max-width: 1024px) {
+  .site-footer__top {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-footer__top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .site-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
