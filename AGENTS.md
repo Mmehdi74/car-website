@@ -24,7 +24,14 @@ volumes and are installed on container start.
 - `better-sqlite3` is a native module, so both app images use the glibc-based
   `node:22-bookworm-slim` (not Alpine).
 - Fleet content, prices, specs and image URLs live in `web/src/data/vehicles.js`;
-  brand/contact placeholders live in `web/src/data/site.js`.
+  brand/contact placeholders live in `web/src/data/site.js`. Both are real
+  source: `.gitignore` ignores `/api/data/` only, because a bare `data/` rule
+  also swallowed `web/src/data/` and left the app unable to build from a clean
+  clone.
+- Vehicle photos are remote Unsplash URLs except the Mercedes G-Class, which is
+  bundled at `web/public/images/mercedes-g-class.jpg` (the upstream photo was
+  deleted). The app runs React 18, which does not map the camelCase
+  `fetchPriority` prop — use the lowercase `fetchpriority` attribute on `<img>`.
 - `BASE44_PREVIEW_MODE=1` is only set inside the sandbox preview. When it is
   `"1"`, `web/vite.config.js` adds the preview proxy host to
   `server.allowedHosts` — the proxy reaches Vite as

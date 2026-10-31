@@ -34,12 +34,15 @@ export default function Hero() {
   return (
     <section className="hero" id="home">
       <div className="hero__media" ref={mediaRef}>
+        {/* React 18 does not map the camelCase fetchPriority prop, so the
+            lowercase attribute is used: it reaches the DOM as-is and still
+            hints the browser to prioritise the hero image. */}
         <img
           src={heroImage}
           alt="Luxury sports car lit in a dark automotive studio"
           width="2000"
           height="1250"
-          fetchPriority="high"
+          fetchpriority="high"
         />
       </div>
       <div className="hero__scrim" aria-hidden="true" />

@@ -3,7 +3,7 @@ dist/
 *.log
 .env
 .env.local
-data/
+/api/data/
 *.db
 *.db-journal
 *.db-wal
