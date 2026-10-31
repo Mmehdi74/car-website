@@ -1,4 +1,4 @@
-import { Hero } from '../components/Hero.jsx';
+import { ScrollDrivenHero } from '../components/ScrollDrivenHero.jsx';
 import { Specials } from '../components/Specials.jsx';
 import { Promo } from '../components/Promo.jsx';
 import { About } from '../components/About.jsx';
@@ -13,7 +13,7 @@ export function Home() {
 
   return (
     <>
-      <Hero />
+      <ScrollDrivenHero />
       <Specials />
       <Promo />
       <About />

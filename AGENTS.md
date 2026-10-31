@@ -36,6 +36,21 @@ configuration because there is no cross-origin request.
   because bind mounts in this sandbox do not reliably emit inotify events.
   Node's `--watch` handles API restarts.
 
+- **The hero is a scrubbed film, not a video player.** `.hero` is a 350vh
+  runway with a `position: sticky` 100svh `.hero__stage`.
+  `hooks/useScrollScrubber.js` maps scroll progress to a frame index
+  (`Math.floor(progress * frameCount)`, `FPS = 24`) and seeks the paused
+  `<video>`. Scroll events only schedule one rAF; progress is written straight
+  to refs/styles, so scrubbing never re-renders React. Do not add `play()`,
+  `loop` or `autoplay` — and do not move the fade onto `.hero__meta` itself: a
+  finished CSS entrance animation out-ranks the inline opacity the scrubber
+  writes every frame (that is why the entrance sits on its children).
+- **Hero media is local, not Unsplash**: `client/public/media/benz-scrub.mp4`
+  is an all-intra re-encode (90 keyframes, faststart, bt709 tags) of the
+  uploaded `benz.mp4`; `benz-poster.webp` (frame 0) and `benz-final.webp`
+  (frame 89) come from it. The source opens on a black frame — that is the
+  asset, not a broken image. `README.md` has the exact ffmpeg command.
+
 ## How to run and verify
 
 ```bash
@@ -56,3 +71,7 @@ End-to-end checks worth repeating after a change: category filters change the
 card count, a vehicle card opens `/vehicle/:slug`, empty submits show field
 errors, a valid submit returns `201` from `POST /api/inquiries`, and the mobile
 menu closes after tapping a link.
+
+For the hero, scroll to a fraction `p` of the runway and assert
+`video.currentTime === Math.min(89, Math.floor(p * 90)) / 24` (90 frames), that
+`video.paused` stays `true`, and that the time holds still once scrolling stops.

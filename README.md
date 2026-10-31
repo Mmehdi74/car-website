@@ -29,6 +29,7 @@ container start, so it is safe to change dependencies and restart the service.
 | Vehicles, prices, specs, features | `client/src/data/vehicles.js` |
 | Brand name, phone, email, location, nav, socials | `client/src/data/site.js` |
 | Every photograph (one URL per slot) | `client/src/data/images.js` |
+| Hero film, its poster and static fallback | `client/public/media/` |
 
 Contact details currently ship as neutral placeholders (`+1 (305) 555 0138`,
 `concierge@velaris.example`) — replace them in `site.js`.
@@ -44,6 +45,34 @@ client/src
   lib/          api.js, validation.js, scroll.js
 server/src/     index.js  (GET /api/health, POST /api/inquiries)
 ```
+
+## Cinematic hero
+
+The hero is a scroll-scrubbed film, not a playing video. A 350vh runway holds a
+sticky 100svh stage; scroll position maps linearly onto the 3.75 s Mercedes-Benz
+reveal and the video is never played, looped or autoplayed — only seeked frame by
+frame, forwards and backwards.
+
+| File | What it is |
+| --- | --- |
+| `client/public/media/benz.mp4` | The uploaded master, untouched. |
+| `client/public/media/benz-scrub.mp4` | All-intra re-encode used by the page: identical frames and order, but every frame is a keyframe so a seek decodes a single frame. |
+| `client/public/media/benz-poster.webp` | Frame 0 — shown while the film loads and as the video `poster`. |
+| `client/public/media/benz-final.webp` | Frame 89 (final three-quarter view) — the static hero for `prefers-reduced-motion` and the failover image. |
+
+`client/src/hooks/useScrollScrubber.js` is the controller (passive scroll →
+one animation frame → `video.currentTime`), `ScrollDrivenHero.jsx` the
+presentation. Replacing the film means re-encoding it the same way and
+regenerating both stills:
+
+```bash
+docker run --rm -v "$PWD/client/public/media":/m jrottenberg/ffmpeg:4.1-alpine \
+  -y -i /m/benz.mp4 -an -c:v libx264 -pix_fmt yuv420p \
+  -color_primaries bt709 -color_trc bt709 -colorspace bt709 \
+  -g 1 -keyint_min 1 -sc_threshold 0 -crf 20 -movflags +faststart /m/benz-scrub.mp4
+```
+
+If the replaced film is not 24 fps, update `FPS` in `useScrollScrubber.js`.
 
 ## API
 
