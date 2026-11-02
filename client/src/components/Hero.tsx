@@ -112,7 +112,6 @@ export function Hero({ onBuy }: { onBuy: () => void }) {
               alt={hero.bottleAlt}
               width={675}
               height={1024}
-              fetchPriority="high"
               initial={reduced ? false : { opacity: 0, scale: 0.94, y: 40, rotate: -7 }}
               animate={{ opacity: 1, scale: 1, y: 0, rotate: -3.2 }}
               transition={{ duration: 1.2, delay: 0.25, ease }}
