@@ -1,0 +1,292 @@
+/* ================= HERO / THE ICONIC THRESHOLD ================= */
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: min(100dvh - 60px, 1060px);
+  padding: clamp(16px, 2.4vw, 44px) var(--pad) clamp(12px, 1.6vw, 22px);
+  overflow: clip;
+  isolation: isolate;
+}
+
+/* --- the oversized wordmark, set like a poster --- */
+
+.hero__type {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: grid;
+  align-content: center;
+  gap: clamp(0px, 0.15vw, 3px);
+  padding: clamp(6px, 1.4vw, 24px) var(--pad) clamp(30px, 7vh, 90px);
+  pointer-events: none;
+}
+
+.hero__clip {
+  display: block;
+  overflow: hidden;
+  padding-block: 0.045em;
+}
+
+.hero__word {
+  display: block;
+  text-align: center;
+  white-space: nowrap;
+  color: var(--red);
+  line-height: 0.8;
+  letter-spacing: -0.042em;
+  margin-inline: -0.015em;
+}
+
+.hero__word.grudge {
+  -webkit-mask-size: 430px 430px;
+  mask-size: 430px 430px;
+}
+
+.hero__word--a {
+  font-size: clamp(52px, 19.1vw, 316px);
+}
+
+.hero__word--b {
+  font-size: clamp(44px, 16vw, 266px);
+}
+
+/* --- the stage: copy / bottle / ledger --- */
+
+.hero__stage {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: end;
+  gap: clamp(10px, 1.4vw, 26px);
+  padding-top: clamp(20px, 5vh, 72px);
+  padding-bottom: clamp(10px, 2.6vh, 30px);
+}
+
+.hero__col--left {
+  grid-column: 1 / span 4;
+  max-width: 33ch;
+  padding-bottom: clamp(0px, 0.6vw, 10px);
+}
+
+.hero__script {
+  font-size: clamp(20px, 1.9vw, 30px);
+  color: var(--red);
+  transform: rotate(-2deg);
+  display: inline-block;
+  margin-bottom: 2px;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3.5vw, 64px);
+  line-height: 0.88;
+  text-transform: uppercase;
+  letter-spacing: -0.022em;
+  margin-bottom: clamp(10px, 1.1vw, 16px);
+}
+
+.hero__lead {
+  font-size: clamp(13px, 0.96vw, 15px);
+  line-height: 1.62;
+  color: var(--ink-soft);
+  max-width: 36ch;
+}
+
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: clamp(16px, 1.8vw, 26px);
+}
+
+.hero__kicker {
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray);
+  max-width: 15ch;
+  line-height: 1.5;
+}
+
+.hero__bottle-wrap {
+  position: relative;
+  z-index: 3;
+  grid-column: 5 / span 4;
+  align-self: center;
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.hero__contact {
+  position: absolute;
+  bottom: -1%;
+  left: 50%;
+  translate: -50% 0;
+  width: min(82%, 360px);
+  height: clamp(14px, 2.2vh, 26px);
+  background: radial-gradient(closest-side, rgba(96, 34, 12, 0.4), rgba(96, 34, 12, 0) 78%);
+  filter: blur(5px);
+  z-index: 0;
+}
+
+.hero__bottle-tilt {
+  position: relative;
+  z-index: 1;
+  transform-style: preserve-3d;
+}
+
+.hero__bottle {
+  height: clamp(300px, 60vh, 660px);
+  width: auto;
+  filter: drop-shadow(0 30px 26px rgba(70, 22, 8, 0.26)) drop-shadow(0 4px 4px rgba(70, 22, 8, 0.1));
+  will-change: transform;
+}
+
+.hero__col--right {
+  grid-column: 9 / span 4;
+  align-self: end;
+}
+
+/* --- baseline --- */
+
+.hero__foot {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: clamp(10px, 1.4vw, 18px);
+  border-top: 1px solid var(--line-soft);
+}
+
+.hero__avail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 16px;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+.hero__scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.hero__scroll svg {
+  width: 14px;
+  height: 14px;
+  animation: nudge 2.6s var(--ease) infinite;
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translateY(-2px);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+/* ================= HERO / RESPONSIVE ================= */
+
+@media (max-width: 1180px) {
+  .hero__col--left {
+    grid-column: 1 / span 5;
+  }
+
+  .hero__bottle-wrap {
+    grid-column: 6 / span 4;
+  }
+
+  .hero__col--right {
+    grid-column: 10 / span 3;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    min-height: auto;
+    padding-top: 8px;
+  }
+
+  .hero__type {
+    position: relative;
+    inset: auto;
+    z-index: 0;
+    padding: 0 0 0;
+    align-content: start;
+  }
+
+  .hero__word--a {
+    font-size: 20.4vw;
+  }
+
+  .hero__word--b {
+    font-size: 17.2vw;
+  }
+
+  .hero__stage {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(20px, 4vw, 34px);
+    padding-top: 0;
+    margin-top: -7vw;
+  }
+
+  .hero__col--left,
+  .hero__col--right {
+    grid-column: 1;
+    max-width: 58ch;
+  }
+
+  .hero__bottle-wrap {
+    grid-column: 1;
+    order: -1;
+    margin-top: -9vw;
+  }
+
+  .hero__bottle {
+    height: clamp(230px, 45vh, 400px);
+  }
+
+  .hero__contact {
+    width: min(64%, 250px);
+  }
+
+  .ledger {
+    max-width: none;
+    margin: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero__title {
+    font-size: clamp(30px, 9.4vw, 46px);
+  }
+
+  .hero__foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .hero__avail {
+    gap: 4px 12px;
+  }
+}
