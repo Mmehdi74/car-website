@@ -5,7 +5,7 @@
 @layer base {
   :root {
     color-scheme: dark;
-    --ink: #0c1016;
+    --ink: #0a0d11;
     --orange: #ff681e;
   }
 
@@ -18,16 +18,12 @@
   body {
     @apply bg-ink font-sans text-cream antialiased;
     overflow-x: hidden;
-    background-image: radial-gradient(
-      120% 80% at 50% -10%,
-      rgba(255, 104, 30, 0.06) 0%,
-      rgba(12, 16, 22, 0) 55%
-    );
+    background-image: linear-gradient(180deg, #0c1015 0%, #0a0d11 42%, #0a0d11 100%);
   }
 
   ::selection {
     background: rgba(255, 104, 30, 0.85);
-    color: #0c1016;
+    color: #0a0d11;
   }
 
   :focus-visible {
@@ -61,7 +57,7 @@
   }
 
   .label {
-    @apply font-tech text-[10px] font-medium uppercase leading-none tracking-label text-muted sm:text-[11px];
+    @apply font-tech text-[10px] font-medium uppercase leading-none tracking-label text-muted sm:text-[10.5px];
   }
 
   .label-orange {
@@ -71,27 +67,27 @@
   .display-xl {
     font-family: 'Bebas Neue', 'Oswald', Impact, sans-serif;
     @apply uppercase leading-[0.82] tracking-[0.01em];
-    font-size: clamp(3.25rem, 12.5vw, 10.5rem);
+    font-size: clamp(3.1rem, 12vw, 9.5rem);
   }
 
   .display-lg {
     font-family: 'Bebas Neue', 'Oswald', Impact, sans-serif;
-    @apply uppercase leading-[0.86] tracking-[0.01em];
-    font-size: clamp(3rem, 8vw, 6.5rem);
+    @apply uppercase leading-[0.84] tracking-[0.015em];
+    font-size: clamp(2.9rem, 7.5vw, 6.25rem);
   }
 
   .display-md {
     font-family: 'Bebas Neue', 'Oswald', Impact, sans-serif;
-    @apply uppercase leading-[0.92] tracking-[0.01em];
-    font-size: clamp(2rem, 4vw, 3.25rem);
+    @apply uppercase leading-[0.9] tracking-[0.02em];
+    font-size: clamp(1.85rem, 3.4vw, 2.85rem);
   }
 
   .copy {
-    @apply text-[13.5px] leading-[1.75] text-muted sm:text-sm;
+    @apply text-[13px] leading-[1.8] text-muted sm:text-[13.5px];
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2.5 rounded-[2px] px-6 py-3.5 font-tech text-[11px] font-medium uppercase tracking-[0.18em] transition-colors duration-300 ease-premium;
+    @apply inline-flex items-center justify-center gap-2.5 rounded-[2px] px-6 py-3.5 font-tech text-[10.5px] font-medium uppercase tracking-[0.2em] transition-colors duration-300 ease-premium;
   }
 
   .btn-primary {
@@ -103,7 +99,7 @@
   }
 
   .card-surface {
-    @apply relative overflow-hidden rounded-[3px] border border-white/10 bg-card;
+    @apply relative overflow-hidden rounded-[2px] border border-white/[0.09] bg-card;
   }
 
   .arrow-slide svg {
@@ -121,7 +117,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.055;
+    opacity: 0.045;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     mix-blend-mode: overlay;
   }
@@ -150,9 +146,9 @@
   .noise-veil {
     background-image: linear-gradient(
       180deg,
-      rgba(12, 16, 22, 0.82) 0%,
-      rgba(12, 16, 22, 0.35) 38%,
-      rgba(12, 16, 22, 0.72) 100%
+      rgba(10, 13, 17, 0.86) 0%,
+      rgba(10, 13, 17, 0.4) 42%,
+      rgba(10, 13, 17, 0.92) 100%
     );
   }
 }

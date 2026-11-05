@@ -200,48 +200,12 @@ export const rides: Ride[] = [
 ];
 
 export const gallery = [
-  {
-    src: images.mxOrange,
-    caption: 'Factory squad / Stage 04',
-    meta: 'Motocross',
-    span: 'col-span-2 lg:col-span-7',
-    ratio: 'aspect-[4/3] lg:aspect-[16/10]',
-  },
-  {
-    src: images.mxMountain,
-    caption: 'Ridge line / 2,400 m',
-    meta: 'Mountains',
-    span: 'col-span-2 sm:col-span-1 lg:col-span-5',
-    ratio: 'aspect-[4/3] lg:aspect-[16/10]',
-  },
-  {
-    src: images.atvLine,
-    caption: 'Trail pack / Dawn run',
-    meta: 'ATV',
-    span: 'col-span-1 lg:col-span-4',
-    ratio: 'aspect-square',
-  },
-  {
-    src: images.helmetRed,
-    caption: 'Gear room / Prototype 07',
-    meta: 'Equipment',
-    span: 'col-span-1 lg:col-span-4',
-    ratio: 'aspect-square',
-  },
-  {
-    src: images.aerialMountain,
-    caption: 'Above the tree line',
-    meta: 'Trails',
-    span: 'col-span-2 sm:col-span-1 lg:col-span-4',
-    ratio: 'aspect-square',
-  },
-  {
-    src: images.desertRoad,
-    caption: 'Dust season / Almería',
-    meta: 'Adventure',
-    span: 'col-span-2 lg:col-span-12',
-    ratio: 'aspect-[16/10] lg:aspect-[21/7]',
-  },
+  { src: images.mxOrange, caption: 'Factory squad / Stage 04', meta: 'Motocross' },
+  { src: images.mxMountain, caption: 'Ridge line / 2,400 m', meta: 'Mountains' },
+  { src: images.atvLine, caption: 'Trail pack / Dawn run', meta: 'ATV' },
+  { src: images.helmetRed, caption: 'Gear room / Prototype 07', meta: 'Equipment' },
+  { src: images.aerialMountain, caption: 'Above the tree line', meta: 'Trails' },
+  { src: images.desertRoad, caption: 'Dust season / Almería', meta: 'Adventure' },
 ] as const;
 
 export const footerLinks = {

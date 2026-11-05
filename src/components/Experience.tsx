@@ -11,7 +11,7 @@ export default function Experience() {
           loading="lazy"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-ink/70" />
+        <div className="absolute inset-0 bg-ink/75" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/60 to-ink/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />
       </div>

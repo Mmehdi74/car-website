@@ -42,7 +42,7 @@ export default function GuidesSection() {
                   <span className="absolute left-4 top-4 font-tech text-[10px] tracking-[0.2em] text-cream/90">
                     {guide.index}
                   </span>
-                  <span className="absolute bottom-3 right-4 font-tech text-[8.5px] uppercase tracking-[0.22em] text-cream/60">
+                  <span className="absolute bottom-3 right-4 font-tech text-[9px] uppercase tracking-[0.22em] text-cream/60">
                     {guide.read} read
                   </span>
                 </div>

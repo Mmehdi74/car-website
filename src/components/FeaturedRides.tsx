@@ -39,7 +39,7 @@ export default function FeaturedRides() {
                     />
                   </div>
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-transparent" />
-                  <span className="absolute left-4 top-4 border border-white/20 bg-ink/45 px-2 py-1 font-tech text-[8px] uppercase tracking-[0.22em] text-cream/85 backdrop-blur-sm">
+                  <span className="absolute left-4 top-4 border border-white/20 bg-ink/45 px-2 py-1 font-tech text-[9px] uppercase tracking-[0.22em] text-cream/85 backdrop-blur-sm">
                     {ride.sub}
                   </span>
                 </div>
@@ -62,7 +62,7 @@ export default function FeaturedRides() {
                     <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-white/10 pt-5">
                       {ride.specs.map((spec) => (
                         <div key={spec.label}>
-                          <dt className="font-tech text-[8.5px] uppercase tracking-[0.22em] text-dim">
+                          <dt className="font-tech text-[9px] uppercase tracking-[0.22em] text-dim">
                             {spec.label}
                           </dt>
                           <dd className="mt-1.5 font-tech text-[13px] uppercase tracking-[0.06em] text-cream/90">

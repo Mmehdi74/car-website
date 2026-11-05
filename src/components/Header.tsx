@@ -42,7 +42,7 @@ export default function Header({ active }: HeaderProps) {
             <span className="font-display text-[22px] tracking-[0.24em] text-cream transition-colors group-hover:text-orange">
               SQUADRO
             </span>
-            <span className="mt-1 font-tech text-[8px] uppercase tracking-[0.42em] text-dim">
+            <span className="mt-1 font-tech text-[9px] uppercase tracking-[0.42em] text-dim">
               Off-road motorsport
             </span>
           </a>

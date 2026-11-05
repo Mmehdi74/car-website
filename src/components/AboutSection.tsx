@@ -31,11 +31,11 @@ export default function AboutSection() {
           />
         </Reveal>
 
-        <div className="mt-10 grid gap-4 sm:mt-14 lg:grid-cols-2 lg:gap-5">
+        <div className="mt-12 grid gap-4 sm:mt-16 lg:grid-cols-2 lg:gap-4">
           {/* 01 — main ride */}
           <Reveal className="h-full">
             <AboutCard index="01" label="Main ride" className="h-full">
-              <div className="relative aspect-[4/3] overflow-hidden sm:aspect-[16/10]">
+              <div className="relative min-h-[240px] flex-1 overflow-hidden">
                 <img
                   src={images.heroAtv}
                   alt="Rider on a yellow quad bike drifting through dust"
@@ -44,17 +44,17 @@ export default function AboutSection() {
                   decoding="async"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent" />
-                <span className="absolute left-5 top-5 border border-white/20 bg-ink/40 px-2 py-1 font-tech text-[8px] uppercase tracking-[0.22em] text-cream/80 backdrop-blur-sm">
+                <span className="absolute left-5 top-5 border border-white/20 bg-ink/40 px-2 py-1 font-tech text-[9px] uppercase tracking-[0.22em] text-cream/80 backdrop-blur-sm">
                   Featured
                 </span>
-                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                <div className="absolute inset-x-0 bottom-0 p-6">
                   <h4 className="display-md text-cream">Drive your beast</h4>
                   <p className="mt-2 max-w-sm text-[12.5px] leading-relaxed text-muted">
                     One machine, one line. The flagship quad in its natural element.
                   </p>
                 </div>
               </div>
-              <div className="flex flex-wrap items-center justify-between gap-2 border-t border-white/10 px-5 py-3">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-t border-white/[0.09] px-6 py-3.5">
                 <span className="label text-dim">Renegad XXC 1000</span>
                 <span className="label text-dim">4x4 / 976 cc</span>
               </div>
@@ -64,10 +64,10 @@ export default function AboutSection() {
           {/* 02 — bikes */}
           <Reveal delay={80} className="h-full">
             <AboutCard index="02" label="Bikes" className="h-full">
-              <div className="relative overflow-hidden bg-[radial-gradient(circle_at_62%_28%,#2c343f_0%,#1a2029_48%,#12171e_100%)] p-5 sm:p-6">
+              <div className="relative overflow-hidden bg-[radial-gradient(circle_at_62%_28%,#242c36_0%,#161c24_48%,#0f141a_100%)] p-6">
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute -right-2 -top-4 select-none font-display text-[6.5rem] leading-none text-white/[0.05]"
+                  className="pointer-events-none absolute -right-2 -top-4 select-none font-display text-[6rem] leading-none text-white/[0.035]"
                 >
                   02
                 </span>
@@ -78,7 +78,7 @@ export default function AboutSection() {
                       ATV Redefined
                     </h4>
                   </div>
-                  <span className="mt-1 shrink-0 border border-orange/40 px-2 py-1 font-tech text-[8px] uppercase tracking-[0.18em] text-orange">
+                  <span className="mt-1 shrink-0 border border-orange/40 px-2 py-1 font-tech text-[9px] uppercase tracking-[0.18em] text-orange">
                     New
                   </span>
                 </div>
@@ -87,7 +87,7 @@ export default function AboutSection() {
                   <img
                     src={images.atvDirt}
                     alt="Aggressive off-road quad bike on a dirt track"
-                    className="h-[180px] w-full rounded-[2px] object-cover object-center transition-transform duration-[1200ms] ease-premium group-hover:scale-[1.04] sm:h-[210px]"
+                    className="aspect-[16/10] w-full rounded-[2px] object-cover object-center transition-transform duration-[1200ms] ease-premium group-hover:scale-[1.04]"
                     loading="lazy"
                     decoding="async"
                   />
@@ -118,7 +118,7 @@ export default function AboutSection() {
           {/* 03 — gear */}
           <Reveal delay={120} className="h-full">
             <AboutCard index="03" label="Gear" className="h-full">
-              <div className="p-5 sm:p-6">
+              <div className="p-6">
                 <div className="flex items-end justify-between gap-4">
                   <div>
                     <p className="label-orange">03 Gear</p>
@@ -130,7 +130,7 @@ export default function AboutSection() {
                 <ul className="mt-5 grid grid-cols-3 gap-2.5 sm:gap-3">
                   {gear.map((item) => (
                     <li key={item.name} className="group/gear">
-                      <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-[2px] border border-white/10 bg-[radial-gradient(circle_at_50%_30%,#2a323c_0%,#1a2029_60%,#131920_100%)]">
+                      <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-[2px] border border-white/10 bg-[radial-gradient(circle_at_50%_30%,#232b35_0%,#161c24_60%,#10151b_100%)]">
                         <div className="absolute inset-x-4 bottom-3 h-2 rounded-full bg-black/40 blur-md" />
                         <HelmetMark
                           accent={item.accent}
@@ -165,7 +165,7 @@ export default function AboutSection() {
           {/* 04 — stories */}
           <Reveal delay={160} className="h-full">
             <AboutCard index="04" label="Stories" className="h-full">
-              <div className="flex h-full flex-col justify-between p-5 sm:p-6">
+              <div className="flex h-full flex-col justify-between p-6">
                 <div>
                   <div className="flex items-end justify-between gap-4">
                     <div>
@@ -191,7 +191,7 @@ export default function AboutSection() {
                         <p className="mt-2 font-tech text-[9.5px] uppercase tracking-[0.14em] text-cream/85">
                           {story.title}
                         </p>
-                        <p className="mt-0.5 font-tech text-[8.5px] uppercase tracking-[0.16em] text-dim">
+                        <p className="mt-0.5 font-tech text-[9px] uppercase tracking-[0.16em] text-dim">
                           {story.meta}
                         </p>
                       </li>

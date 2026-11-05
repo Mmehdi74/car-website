@@ -9,15 +9,15 @@ export default {
     },
     extend: {
       colors: {
-        ink: '#0C1016',
-        base: '#111820',
-        card: '#171E27',
-        elevate: '#202833',
-        cream: '#F5F5F3',
-        muted: '#A0A5AB',
-        dim: '#666E78',
+        ink: '#0A0D11',
+        base: '#0F141A',
+        card: '#131920',
+        elevate: '#1A212A',
+        cream: '#EFEFEC',
+        muted: '#9AA1A8',
+        dim: '#5D656F',
         orange: '#FF681E',
-        ember: '#E94B13',
+        ember: '#E34E12',
       },
       fontFamily: {
         display: ['"Bebas Neue"', 'Oswald', 'Impact', 'sans-serif'],
@@ -25,12 +25,12 @@ export default {
         tech: ['"Space Grotesk"', 'Inter', 'monospace'],
       },
       letterSpacing: {
-        label: '0.28em',
+        label: '0.26em',
         wide2: '0.16em',
       },
       boxShadow: {
-        cinematic: '0 20px 60px rgba(0,0,0,0.45)',
-        lift: '0 30px 80px rgba(0,0,0,0.55)',
+        cinematic: '0 24px 70px rgba(0,0,0,0.5)',
+        lift: '0 34px 90px rgba(0,0,0,0.6)',
       },
       transitionTimingFunction: {
         premium: 'cubic-bezier(0.22, 1, 0.36, 1)',

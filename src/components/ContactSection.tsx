@@ -4,7 +4,7 @@ export default function ContactSection() {
   return (
     <section id="contact" className="relative overflow-hidden border-t border-white/10">
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-orange/[0.07] blur-[120px]" />
+        <div className="absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-orange/[0.045] blur-[120px]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,#171e27_0%,#0c1016_60%)]" />
         <div className="absolute inset-0 grain" />
       </div>
@@ -44,7 +44,7 @@ export default function ContactSection() {
             { term: 'Dealers', value: '38 across Europe' },
           ].map((item) => (
             <div key={item.term}>
-              <dt className="font-tech text-[8.5px] uppercase tracking-[0.24em] text-dim">
+              <dt className="font-tech text-[9px] uppercase tracking-[0.24em] text-dim">
                 {item.term}
               </dt>
               <dd className="mt-2 text-[12px] leading-relaxed text-cream/80">{item.value}</dd>

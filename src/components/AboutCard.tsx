@@ -13,7 +13,7 @@ function CardShell({ index, label, children, className = '' }: CardShellProps) {
     <article
       className={`group card-surface shadow-cinematic transition-colors duration-500 ease-premium hover:border-white/25 ${className}`}
     >
-      <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 sm:px-5">
+      <div className="flex items-center justify-between border-b border-white/10 px-6 py-3.5">
         <span className="flex items-center gap-2.5">
           <span className="font-tech text-[10px] tracking-[0.2em] text-orange">{index}</span>
           <span className="h-2.5 w-px bg-white/15" />
